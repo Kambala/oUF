@@ -21,6 +21,7 @@ local colors = {
 	class = {},
 	reaction = {},
 	power = {},
+	dispel = {},
 }
 
 -- We do this because people edit the vars directly, and changing the default
@@ -94,6 +95,10 @@ colors.power[13] = colors.power.INSANITY
 colors.power[16] = colors.power.ARCANE_CHARGES
 colors.power[17] = colors.power.FURY
 colors.power[18] = colors.power.PAIN
+
+for dispelType, color in next, DebuffTypeColor do
+	colors.dispel[dispelType] = {color.r, color.g, color.b}
+end
 
 local function colorsAndPercent(a, b, ...)
 	if(a <= 0 or b == 0) then
