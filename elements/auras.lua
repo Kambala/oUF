@@ -49,10 +49,14 @@ At least one of the above widgets must be present for the element to work.
 
 ## Attributes
 
-button.caster   - the unit who cast the aura (string)
-button.filter   - the filter list used to determine the visibility of the aura (string)
-button.isDebuff - indicates if the button holds a debuff (boolean)
-button.isPlayer - indicates if the aura caster is the player or their vehicle (boolean)
+button.caster      - the unit who cast the aura (string)
+button.dispelType  - the dispel type of the aura (string)
+button.duration    - the aura duration in seconds (number)
+button.expiration  - the time at which the aura will expire (number)
+button.filter      - the filter list used to determine the visibility of the aura (string)
+button.isDebuff    - indicates if the button holds a debuff (boolean)
+button.isPlayer    - indicates if the aura caster is the player or their vehicle (boolean)
+button.isStealable - indicates if the aura can be stolen or purged by the player (boolean)
 
 ## Examples
 
@@ -166,6 +170,10 @@ local function updateIcon(element, unit, index, offset, filter, isDebuff, visibl
 		button.filter = filter
 		button.isDebuff = isDebuff
 		button.isPlayer = caster == 'player' or caster == 'vehicle'
+		button.duration = duration
+		button.expiration = expiration
+		button.isStealable = isStealable
+		button.dispelType = dispelType
 
 		--[[ Override: Auras:CustomFilter(unit, button, ...)
 		Defines a custom filter that controls if the aura button should be shown.
