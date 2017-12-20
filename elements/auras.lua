@@ -201,9 +201,8 @@ local function updateIcon(element, unit, index, offset, filter, isDebuff, visibl
 					local color = element.__owner.colors.dispel[dispelType or 'none']
 
 					button.overlay:SetVertexColor(color[1], color[2], color[3])
-					button.overlay:Show()
 				else
-					button.overlay:Hide()
+					button.overlay:SetVertexColor(1, 1, 1)
 				end
 			end
 
